@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Prediction</title>
+</head>
+<body>
+    <h1>이미지 업로드 및 예측</h1>
+
+    {% if image_path %}
+    <!-- 예측 결과 이미지가 있을 때 -->
+    <h5>예측된 이미지:</h5>
+    <img class="image" src="{{ image_path }}" alt="Predicted Image" style="max-width: 450px;">
+    {% else %}
+    <!-- 결과가 없을 때는 아무것도 안뜸 -->
+    <p>아래에 이미지를 업로드하세요:</p>
+    {% endif %}
+
+    <!-- 이미지 선택 및 업로드 -->
+    <form method="POST" enctype="multipart/form-data" action="/">
+        <input type="file" name="file" accept="image/*" required>
+        <input type="submit" value="업로드">
+    </form>
+</body>
+</html>
